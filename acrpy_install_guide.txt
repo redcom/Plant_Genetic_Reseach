@@ -1,0 +1,78 @@
+How to install arcpy and associated modules onto computer.
+
+
+arcpy:
+ - Have ArcGIS installed on the computer
+ 
+ - Navigate to the ArcGIS files. For me, the path is
+         C:\Program Files (x86)\ArcGIS\Desktop10.5
+         
+ - Copy the three following files into PYTHONPATH of environment
+         C:\Program Files (x86)\ArcGIS\Desktop10.5
+         C:\Program Files (x86)\ArcGIS\Desktop10.5\bin64
+         C:\Program Files (x86)\ArcGIS\Desktop10.5\arcpy
+         
+ - Find the ArcGIS directory in the Python folder
+     C:\Python27\ArcGISx6410.5
+     
+ - Copy the python_arcobjects directory into C:\Python27\ArcGISx6410.5
+ 
+ - Establish PYTHONPATH to directory containing "Snippets.py" from 
+       C:\Python27\ArcGISx6410.5\python_arcobjects\apps\Demo
+       
+ - Open Snippets.py and replace "10.x" with current version. At time of typing,
+   10.3 was replaced with 10.5. This will happen on two lines, 23 and 85.
+   
+       - find HKEY_Local_MACHINE software esri version and enter it Line 23
+       - Line 85 to "10.5"
+   
+   NOTE: When script containing the lines
+   
+    import arcpy
+    from comtypes.client import GetModule, CreateObject
+    from Snippets import GetStandaloneModules, InitStandalone
+    
+    #GetStandaloneModules() # Needs to run only first time script is executed
+    InitStandalone()
+
+    After executing, the output should look like...
+   
+        # Generating comtypes.gen._5E1F7BC3_67C5_4AEE_8EC6_C4B73AAC42ED_0_10_5
+        # Generating comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0
+        # Generating comtypes.gen.stdole
+        # Generating comtypes.gen.esriSystem
+        # Generating comtypes.gen._C4B094C2_FF32_4FA1_ABCB_7820F8D6FB68_0_10_5
+        # Generating comtypes.gen.esriGeometry
+        # Generating comtypes.gen._45AC68FF_DEFF_4884_B3A9_7D882EDCAEF1_0_10_5
+        # Generating comtypes.gen._0475BDB1_E5B2_4CA2_9127_B4B1683E70C2_0_10_5
+        # Generating comtypes.gen._59FCCD31_434C_4017_BDEF_DB4B7EDC9CE0_0_10_5
+        # Generating comtypes.gen._4ECCA6E2_B16B_4ACA_BD17_E74CAE4C150A_0_10_5
+        # Generating comtypes.gen.esriSystemUI
+        # Generating comtypes.gen.esriDisplay
+        # Generating comtypes.gen._18F2FC71_6B30_45B9_B101_037A8B868B66_0_10_5
+        # Generating comtypes.gen.esriServer
+        # Generating comtypes.gen.esriGeoDatabase
+        # Generating comtypes.gen._7BA654FE_F55E_4EE5_8CF2_FAEFFBC04A61_0_10_5
+        # Generating comtypes.gen._8F0541A3_D5BE_4B3F_A8D9_062D5579E19B_0_10_5
+        # Generating comtypes.gen.esriDataSourcesRaster
+        # Generating comtypes.gen.esriGeoDatabaseExtensions
+        # Generating comtypes.gen._746F6817_89BB_4490_9829_83CA25FD505A_0_10_5
+        # Generating comtypes.gen.esriGISClient
+        # Generating comtypes.gen._A7C74158_1062_4664_B404_8694D490FCD1_0_10_5
+        # Generating comtypes.gen.esriGeoDatabaseDistributed
+        # Generating comtypes.gen._7DB92CEC_CB65_420A_8737_FCD0722FD436_0_10_5
+        # Generating comtypes.gen.esriOutput
+        # Generating comtypes.gen._1CE6AC65_43F5_4529_8FC0_D7ED298E4F1A_0_10_5
+        # Generating comtypes.gen.esriDataSourcesFile
+        # Generating comtypes.gen.esriCarto
+        # Generating comtypes.gen._4A037613_879A_484D_AF82_0802947C627B_0_10_5
+        # Generating comtypes.gen.esriDataSourcesGDB
+        # Generating comtypes.gen._6FCCEDE0_179D_4D12_B586_58C88D26CA78_0_1_0
+        # Generating comtypes.gen.ArcGISVersionLib
+
+
+for the snippets module and troubleshooting
+https://gis.stackexchange.com/questions/272967/python-comtypes-and-arcobjects-the-specified-product-or-version-does-not-exist/273219#273219
+
+check keys/version numbers
+in spotlight enter "regedit" HKEY_LOCAL_MACHINE > SOFTWARE > ESRI

@@ -1,0 +1,42 @@
+// DemoTool.idl : IDL source for DemoTool
+//
+// This file will be processed by the MIDL tool to
+// produce the type library (DemoTool.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+   uuid(27722EEC-E805-4CE7-9239-45072B25D8C7),
+   version(1.0),
+   helpstring("DemoTool 1.0 Type Library")
+]
+library DemoToolLib
+{
+   importlib("stdole32.tlb");
+   importlib("stdole2.tlb");
+   // Edit the following line as needed to fix the path
+   // importlib("\Program Files\ArcGIS\COM\esriSystemUI.olb"); // 9.3
+   importlib("\Program Files\ArcGIS\Desktop10.0\com\esriSystemUI.olb"); // 10.0
+
+   [
+     object,
+     uuid(1E649FD4-EB1A-4971-A3FB-76DA0B439A99),
+
+     helpstring("IMyTool Interface"),
+     pointer_default(unique)
+   ]
+   interface IMyTool : IUnknown
+   {
+   };
+   [
+      uuid(9EA36787-E1A8-40FF-824A-24807CED28CE),
+      helpstring("MyTool Class")
+   ]
+   coclass MyTool
+   {
+      [default] interface IUnknown;
+      interface ICommand;
+      interface ITool;
+   };
+};
